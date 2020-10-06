@@ -53,5 +53,10 @@ namespace yobitApi
                 listBoxPair.Items.Add(item);
             }
         }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
