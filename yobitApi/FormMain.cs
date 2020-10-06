@@ -54,7 +54,8 @@ namespace yobitApi
             }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void buttonFind_Click(object sender, EventArgs e)
         {
 
         }

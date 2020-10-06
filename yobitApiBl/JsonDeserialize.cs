@@ -16,7 +16,9 @@ namespace yobitApiBl
             {
                 var currencyInfo = JsonConvert.DeserializeObject<CurrencyInfo>(url);
                 foreach (var key in currencyInfo.Pairs)
-                {
+                { 
+                    /*string str = key.Key.ToString();
+                    str = str.Remove(str.IndexOf('_'), str.Length - str.IndexOf('_'));*/
                     pairsList.Add(key.Key.ToString());
                 }
             }
@@ -39,6 +41,8 @@ namespace yobitApiBl
                 {
                     if (regex.IsMatch(key.Key.ToString()))
                     {
+                       /* string str = key.Key.ToString();
+                        str = str.Remove(str.IndexOf('_'), str.Length - str.IndexOf('_'));*/
                         pairsList.Add(key.Key.ToString());
                     }
                 }
@@ -51,3 +55,11 @@ namespace yobitApiBl
         }
     }
 }
+/*
+    rur
+
+    ltc btc 
+    ltc doge 
+    ltc eht 
+    ltc rur
+*/
