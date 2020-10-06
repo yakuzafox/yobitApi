@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,8 +7,10 @@ namespace yobitApiBl
 {
     public class CurrencyInfo
     {
-        public string server_time { get; set; }
+        [JsonProperty("server_time")]
+        public long ServerTime { get; set; }
 
-        public Dictionary<string, CurrencyPair> pairs { get; set; }
+        [JsonProperty("pairs")]
+        public Dictionary<string, CurrencyPair> Pairs { get; set; }
     }
 }
