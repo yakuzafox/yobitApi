@@ -29,42 +29,34 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxPair = new System.Windows.Forms.ListBox();
             this.labelSelectedPair = new System.Windows.Forms.Label();
-            this.checkBoxUSDT = new System.Windows.Forms.CheckBox();
-            this.checkBoxRUR = new System.Windows.Forms.CheckBox();
-            this.checkBoxUSD = new System.Windows.Forms.CheckBox();
-            this.checkBoxW = new System.Windows.Forms.CheckBox();
-            this.checkBoxYO = new System.Windows.Forms.CheckBox();
-            this.checkBoxDOGE = new System.Windows.Forms.CheckBox();
-            this.checkBoxETH = new System.Windows.Forms.CheckBox();
-            this.checkBoxBTC = new System.Windows.Forms.CheckBox();
             this.textBoxSearchPair = new System.Windows.Forms.TextBox();
             this.comboBoxConvertPair = new System.Windows.Forms.ComboBox();
             this.tabControlMain = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Parser = new System.Windows.Forms.TabPage();
             this.textBoxLink = new System.Windows.Forms.TextBox();
             this.dataGridViewParser = new System.Windows.Forms.DataGridView();
+            this.buttonFind = new System.Windows.Forms.Button();
+            this.Bot = new System.Windows.Forms.TabPage();
+            this.timerReloadParse = new System.Windows.Forms.Timer(this.components);
+            this.textBoxLog = new System.Windows.Forms.TextBox();
             this.Pair = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Buy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelCurrency = new System.Windows.Forms.Panel();
-            this.buttonFind = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.timerReloadParse = new System.Windows.Forms.Timer(this.components);
-            this.checkBoxAllPair = new System.Windows.Forms.CheckBox();
+            this.comboBoxExchange = new System.Windows.Forms.ComboBox();
             this.menuStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.Parser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParser)).BeginInit();
-            this.panelCurrency.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -110,7 +102,7 @@
             this.listBoxPair.Location = new System.Drawing.Point(5, 93);
             this.listBoxPair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxPair.Name = "listBoxPair";
-            this.listBoxPair.Size = new System.Drawing.Size(248, 301);
+            this.listBoxPair.Size = new System.Drawing.Size(248, 439);
             this.listBoxPair.TabIndex = 1;
             this.listBoxPair.SelectedIndexChanged += new System.EventHandler(this.listBoxPair_SelectedIndexChanged);
             // 
@@ -127,108 +119,12 @@
             this.labelSelectedPair.Text = "SelectedPair";
             this.labelSelectedPair.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // checkBoxUSDT
-            // 
-            this.checkBoxUSDT.AutoSize = true;
-            this.checkBoxUSDT.ForeColor = System.Drawing.Color.White;
-            this.checkBoxUSDT.Location = new System.Drawing.Point(449, 10);
-            this.checkBoxUSDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxUSDT.Name = "checkBoxUSDT";
-            this.checkBoxUSDT.Size = new System.Drawing.Size(68, 21);
-            this.checkBoxUSDT.TabIndex = 0;
-            this.checkBoxUSDT.Text = "USDT";
-            this.checkBoxUSDT.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxRUR
-            // 
-            this.checkBoxRUR.AutoSize = true;
-            this.checkBoxRUR.ForeColor = System.Drawing.Color.White;
-            this.checkBoxRUR.Location = new System.Drawing.Point(384, 10);
-            this.checkBoxRUR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxRUR.Name = "checkBoxRUR";
-            this.checkBoxRUR.Size = new System.Drawing.Size(60, 21);
-            this.checkBoxRUR.TabIndex = 0;
-            this.checkBoxRUR.Text = "RUR";
-            this.checkBoxRUR.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxUSD
-            // 
-            this.checkBoxUSD.AutoSize = true;
-            this.checkBoxUSD.ForeColor = System.Drawing.Color.White;
-            this.checkBoxUSD.Location = new System.Drawing.Point(318, 10);
-            this.checkBoxUSD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxUSD.Name = "checkBoxUSD";
-            this.checkBoxUSD.Size = new System.Drawing.Size(59, 21);
-            this.checkBoxUSD.TabIndex = 0;
-            this.checkBoxUSD.Text = "USD";
-            this.checkBoxUSD.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxW
-            // 
-            this.checkBoxW.AutoSize = true;
-            this.checkBoxW.ForeColor = System.Drawing.Color.White;
-            this.checkBoxW.Location = new System.Drawing.Point(267, 10);
-            this.checkBoxW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxW.Name = "checkBoxW";
-            this.checkBoxW.Size = new System.Drawing.Size(43, 21);
-            this.checkBoxW.TabIndex = 0;
-            this.checkBoxW.Text = "W";
-            this.checkBoxW.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxYO
-            // 
-            this.checkBoxYO.AutoSize = true;
-            this.checkBoxYO.ForeColor = System.Drawing.Color.White;
-            this.checkBoxYO.Location = new System.Drawing.Point(212, 10);
-            this.checkBoxYO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxYO.Name = "checkBoxYO";
-            this.checkBoxYO.Size = new System.Drawing.Size(50, 21);
-            this.checkBoxYO.TabIndex = 0;
-            this.checkBoxYO.Text = "YO";
-            this.checkBoxYO.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxDOGE
-            // 
-            this.checkBoxDOGE.AutoSize = true;
-            this.checkBoxDOGE.ForeColor = System.Drawing.Color.White;
-            this.checkBoxDOGE.Location = new System.Drawing.Point(135, 10);
-            this.checkBoxDOGE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxDOGE.Name = "checkBoxDOGE";
-            this.checkBoxDOGE.Size = new System.Drawing.Size(71, 21);
-            this.checkBoxDOGE.TabIndex = 0;
-            this.checkBoxDOGE.Text = "DOGE";
-            this.checkBoxDOGE.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxETH
-            // 
-            this.checkBoxETH.AutoSize = true;
-            this.checkBoxETH.ForeColor = System.Drawing.Color.White;
-            this.checkBoxETH.Location = new System.Drawing.Point(71, 10);
-            this.checkBoxETH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxETH.Name = "checkBoxETH";
-            this.checkBoxETH.Size = new System.Drawing.Size(58, 21);
-            this.checkBoxETH.TabIndex = 0;
-            this.checkBoxETH.Text = "ETH";
-            this.checkBoxETH.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBTC
-            // 
-            this.checkBoxBTC.AutoSize = true;
-            this.checkBoxBTC.ForeColor = System.Drawing.Color.White;
-            this.checkBoxBTC.Location = new System.Drawing.Point(10, 10);
-            this.checkBoxBTC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxBTC.Name = "checkBoxBTC";
-            this.checkBoxBTC.Size = new System.Drawing.Size(57, 21);
-            this.checkBoxBTC.TabIndex = 0;
-            this.checkBoxBTC.Text = "BTC";
-            this.checkBoxBTC.UseVisualStyleBackColor = true;
-            // 
             // textBoxSearchPair
             // 
             this.textBoxSearchPair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.textBoxSearchPair.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSearchPair.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBoxSearchPair.Location = new System.Drawing.Point(5, 66);
+            this.textBoxSearchPair.Location = new System.Drawing.Point(5, 64);
             this.textBoxSearchPair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSearchPair.Name = "textBoxSearchPair";
             this.textBoxSearchPair.Size = new System.Drawing.Size(248, 22);
@@ -251,7 +147,7 @@
             "USD",
             "RUR",
             "USDT"});
-            this.comboBoxConvertPair.Location = new System.Drawing.Point(437, 63);
+            this.comboBoxConvertPair.Location = new System.Drawing.Point(450, 62);
             this.comboBoxConvertPair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxConvertPair.Name = "comboBoxConvertPair";
             this.comboBoxConvertPair.Size = new System.Drawing.Size(168, 24);
@@ -263,40 +159,44 @@
             this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlMain.Controls.Add(this.tabPage1);
-            this.tabControlMain.Controls.Add(this.tabPage2);
+            this.tabControlMain.Controls.Add(this.Parser);
+            this.tabControlMain.Controls.Add(this.Bot);
             this.tabControlMain.Location = new System.Drawing.Point(12, 25);
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1024, 452);
+            this.tabControlMain.Size = new System.Drawing.Size(1024, 568);
             this.tabControlMain.TabIndex = 7;
             // 
-            // tabPage1
+            // Parser
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tabPage1.Controls.Add(this.textBoxLink);
-            this.tabPage1.Controls.Add(this.dataGridViewParser);
-            this.tabPage1.Controls.Add(this.panelCurrency);
-            this.tabPage1.Controls.Add(this.buttonFind);
-            this.tabPage1.Controls.Add(this.labelSelectedPair);
-            this.tabPage1.Controls.Add(this.listBoxPair);
-            this.tabPage1.Controls.Add(this.comboBoxConvertPair);
-            this.tabPage1.Controls.Add(this.textBoxSearchPair);
-            this.tabPage1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1016, 423);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Parser";
+            this.Parser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.Parser.Controls.Add(this.comboBoxExchange);
+            this.Parser.Controls.Add(this.textBoxLog);
+            this.Parser.Controls.Add(this.textBoxLink);
+            this.Parser.Controls.Add(this.dataGridViewParser);
+            this.Parser.Controls.Add(this.buttonFind);
+            this.Parser.Controls.Add(this.labelSelectedPair);
+            this.Parser.Controls.Add(this.listBoxPair);
+            this.Parser.Controls.Add(this.comboBoxConvertPair);
+            this.Parser.Controls.Add(this.textBoxSearchPair);
+            this.Parser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
+            this.Parser.Location = new System.Drawing.Point(4, 25);
+            this.Parser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Parser.Name = "Parser";
+            this.Parser.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Parser.Size = new System.Drawing.Size(1016, 539);
+            this.Parser.TabIndex = 0;
+            this.Parser.Text = "Parser";
             // 
             // textBoxLink
             // 
             this.textBoxLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLink.Location = new System.Drawing.Point(263, 396);
+            this.textBoxLink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.textBoxLink.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxLink.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBoxLink.Location = new System.Drawing.Point(263, 423);
             this.textBoxLink.Name = "textBoxLink";
             this.textBoxLink.ReadOnly = true;
             this.textBoxLink.Size = new System.Drawing.Size(747, 22);
@@ -305,8 +205,8 @@
             // dataGridViewParser
             // 
             this.dataGridViewParser.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
-            this.dataGridViewParser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
+            this.dataGridViewParser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewParser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -314,77 +214,28 @@
             this.dataGridViewParser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewParser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pair,
-            this.Price,
+            this.Ask,
+            this.Bid,
             this.Buy,
             this.Sell});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewParser.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewParser.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewParser.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewParser.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dataGridViewParser.Location = new System.Drawing.Point(263, 93);
             this.dataGridViewParser.Name = "dataGridViewParser";
             this.dataGridViewParser.ReadOnly = true;
             this.dataGridViewParser.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
-            this.dataGridViewParser.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
+            this.dataGridViewParser.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewParser.RowTemplate.Height = 24;
-            this.dataGridViewParser.Size = new System.Drawing.Size(747, 301);
+            this.dataGridViewParser.Size = new System.Drawing.Size(747, 324);
             this.dataGridViewParser.TabIndex = 11;
-            // 
-            // Pair
-            // 
-            this.Pair.HeaderText = "Pair";
-            this.Pair.MinimumWidth = 6;
-            this.Pair.Name = "Pair";
-            this.Pair.ReadOnly = true;
-            this.Pair.Width = 125;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 125;
-            // 
-            // Buy
-            // 
-            this.Buy.HeaderText = "Buy";
-            this.Buy.MinimumWidth = 6;
-            this.Buy.Name = "Buy";
-            this.Buy.ReadOnly = true;
-            this.Buy.Width = 125;
-            // 
-            // Sell
-            // 
-            this.Sell.HeaderText = "Sell";
-            this.Sell.MinimumWidth = 6;
-            this.Sell.Name = "Sell";
-            this.Sell.ReadOnly = true;
-            this.Sell.Width = 125;
-            // 
-            // panelCurrency
-            // 
-            this.panelCurrency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelCurrency.Controls.Add(this.checkBoxAllPair);
-            this.panelCurrency.Controls.Add(this.checkBoxUSDT);
-            this.panelCurrency.Controls.Add(this.checkBoxBTC);
-            this.panelCurrency.Controls.Add(this.checkBoxRUR);
-            this.panelCurrency.Controls.Add(this.checkBoxETH);
-            this.panelCurrency.Controls.Add(this.checkBoxDOGE);
-            this.panelCurrency.Controls.Add(this.checkBoxUSD);
-            this.panelCurrency.Controls.Add(this.checkBoxYO);
-            this.panelCurrency.Controls.Add(this.checkBoxW);
-            this.panelCurrency.Location = new System.Drawing.Point(263, 16);
-            this.panelCurrency.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelCurrency.Name = "panelCurrency";
-            this.panelCurrency.Size = new System.Drawing.Size(615, 40);
-            this.panelCurrency.TabIndex = 9;
             // 
             // buttonFind
             // 
@@ -402,17 +253,17 @@
             this.buttonFind.UseVisualStyleBackColor = false;
             this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
             // 
-            // tabPage2
+            // Bot
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tabPage2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1016, 423);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.Bot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.Bot.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(60)))));
+            this.Bot.Location = new System.Drawing.Point(4, 25);
+            this.Bot.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Bot.Name = "Bot";
+            this.Bot.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Bot.Size = new System.Drawing.Size(1016, 539);
+            this.Bot.TabIndex = 1;
+            this.Bot.Text = "Bot";
             // 
             // timerReloadParse
             // 
@@ -420,24 +271,91 @@
             this.timerReloadParse.Interval = 1000;
             this.timerReloadParse.Tick += new System.EventHandler(this.timerReloadParse_Tick);
             // 
-            // checkBoxAllPair
+            // textBoxLog
             // 
-            this.checkBoxAllPair.AutoSize = true;
-            this.checkBoxAllPair.ForeColor = System.Drawing.Color.White;
-            this.checkBoxAllPair.Location = new System.Drawing.Point(523, 9);
-            this.checkBoxAllPair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkBoxAllPair.Name = "checkBoxAllPair";
-            this.checkBoxAllPair.Size = new System.Drawing.Size(74, 21);
-            this.checkBoxAllPair.TabIndex = 1;
-            this.checkBoxAllPair.Text = "All Pair";
-            this.checkBoxAllPair.UseVisualStyleBackColor = true;
+            this.textBoxLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
+            this.textBoxLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxLog.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBoxLog.Location = new System.Drawing.Point(263, 451);
+            this.textBoxLog.Multiline = true;
+            this.textBoxLog.Name = "textBoxLog";
+            this.textBoxLog.ReadOnly = true;
+            this.textBoxLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLog.Size = new System.Drawing.Size(747, 82);
+            this.textBoxLog.TabIndex = 13;
+            // 
+            // Pair
+            // 
+            this.Pair.HeaderText = "Pair";
+            this.Pair.MinimumWidth = 6;
+            this.Pair.Name = "Pair";
+            this.Pair.ReadOnly = true;
+            this.Pair.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Pair.Width = 125;
+            // 
+            // Ask
+            // 
+            this.Ask.HeaderText = "Ask";
+            this.Ask.MinimumWidth = 6;
+            this.Ask.Name = "Ask";
+            this.Ask.ReadOnly = true;
+            this.Ask.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Ask.Width = 125;
+            // 
+            // Bid
+            // 
+            this.Bid.HeaderText = "Bid";
+            this.Bid.MinimumWidth = 6;
+            this.Bid.Name = "Bid";
+            this.Bid.ReadOnly = true;
+            this.Bid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Bid.Width = 125;
+            // 
+            // Buy
+            // 
+            this.Buy.HeaderText = "Buy";
+            this.Buy.MinimumWidth = 6;
+            this.Buy.Name = "Buy";
+            this.Buy.ReadOnly = true;
+            this.Buy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Buy.Width = 125;
+            // 
+            // Sell
+            // 
+            this.Sell.HeaderText = "Sell";
+            this.Sell.MinimumWidth = 6;
+            this.Sell.Name = "Sell";
+            this.Sell.ReadOnly = true;
+            this.Sell.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Sell.Width = 125;
+            // 
+            // comboBoxExchange
+            // 
+            this.comboBoxExchange.AutoCompleteCustomSource.AddRange(new string[] {
+            "Binance",
+            "Yobit"});
+            this.comboBoxExchange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.comboBoxExchange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxExchange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxExchange.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxExchange.FormattingEnabled = true;
+            this.comboBoxExchange.Items.AddRange(new object[] {
+            "Binance",
+            "Yobit"});
+            this.comboBoxExchange.Location = new System.Drawing.Point(263, 62);
+            this.comboBoxExchange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxExchange.Name = "comboBoxExchange";
+            this.comboBoxExchange.Size = new System.Drawing.Size(168, 24);
+            this.comboBoxExchange.TabIndex = 14;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(1048, 479);
+            this.ClientSize = new System.Drawing.Size(1048, 595);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.menuStripMain);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -449,11 +367,9 @@
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.tabControlMain.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.Parser.ResumeLayout(false);
+            this.Parser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParser)).EndInit();
-            this.panelCurrency.ResumeLayout(false);
-            this.panelCurrency.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,29 +382,22 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuHelp;
         private System.Windows.Forms.ListBox listBoxPair;
         private System.Windows.Forms.Label labelSelectedPair;
-        private System.Windows.Forms.CheckBox checkBoxUSDT;
-        private System.Windows.Forms.CheckBox checkBoxRUR;
-        private System.Windows.Forms.CheckBox checkBoxUSD;
-        private System.Windows.Forms.CheckBox checkBoxW;
-        private System.Windows.Forms.CheckBox checkBoxYO;
-        private System.Windows.Forms.CheckBox checkBoxDOGE;
-        private System.Windows.Forms.CheckBox checkBoxETH;
-        private System.Windows.Forms.CheckBox checkBoxBTC;
         private System.Windows.Forms.TextBox textBoxSearchPair;
         private System.Windows.Forms.ComboBox comboBoxConvertPair;
         private System.Windows.Forms.TabControl tabControlMain;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage Parser;
+        private System.Windows.Forms.TabPage Bot;
         private System.Windows.Forms.Button buttonFind;
-        private System.Windows.Forms.Panel panelCurrency;
         private System.Windows.Forms.DataGridView dataGridViewParser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pair;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Buy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sell;
         private System.Windows.Forms.Timer timerReloadParse;
         private System.Windows.Forms.TextBox textBoxLink;
-        private System.Windows.Forms.CheckBox checkBoxAllPair;
+        private System.Windows.Forms.TextBox textBoxLog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pair;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ask;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Buy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sell;
+        private System.Windows.Forms.ComboBox comboBoxExchange;
     }
 }
 

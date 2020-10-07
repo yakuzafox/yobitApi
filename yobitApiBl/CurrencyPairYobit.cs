@@ -5,7 +5,7 @@ using System.Text;
 
 namespace yobitApiBl
 {
-    public class CurrencyPair
+    public class CurrencyPairYobit
     {
         [JsonProperty("decimal_places")]
         public long DecimalPlaces { get; set; }

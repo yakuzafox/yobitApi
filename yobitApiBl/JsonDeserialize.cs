@@ -14,7 +14,7 @@ namespace yobitApiBl
             List<string> pairsList = new List<string>();
             try
             {
-                var currencyInfo = JsonConvert.DeserializeObject<CurrencyInfo>(url);
+                var currencyInfo = JsonConvert.DeserializeObject<CurrencyInfoYobit>(url);
                 foreach (var key in currencyInfo.Pairs)
                 { 
                     /*string str = key.Key.ToString();
@@ -35,7 +35,7 @@ namespace yobitApiBl
             List<string> pairsList = new List<string>();
             try
             {
-                var currencyInfo = JsonConvert.DeserializeObject<CurrencyInfo>(url);
+                var currencyInfo = JsonConvert.DeserializeObject<CurrencyInfoYobit>(url);
                 foreach (var key in currencyInfo.Pairs)
                 {
                     if (regex.IsMatch(key.Key.ToString()))
@@ -53,12 +53,12 @@ namespace yobitApiBl
             return pairsList;
         }
 
-        public Dictionary<string, CurrencyTicker> DeserializeTicker(string url)
+        public Dictionary<string, CurrencyTickerYobit> DeserializeTicker(string url)
         {
-            Dictionary<string, CurrencyTicker> tickerList = new Dictionary<string, CurrencyTicker>();
+            Dictionary<string, CurrencyTickerYobit> tickerList = new Dictionary<string, CurrencyTickerYobit>();
             try
             {
-                tickerList = JsonConvert.DeserializeObject<Dictionary<string, CurrencyTicker>>(url);       
+                tickerList = JsonConvert.DeserializeObject<Dictionary<string, CurrencyTickerYobit>>(url);       
             }
             catch
             {
@@ -67,7 +67,19 @@ namespace yobitApiBl
             return tickerList;
         }
 
-
+        public List<BookTickerBinance> DeserializeBookTicker(string url)
+        {
+            List<BookTickerBinance> pairsList = new List<BookTickerBinance>();
+            try
+            {
+                pairsList = JsonConvert.DeserializeObject<List<BookTickerBinance>>(url);
+            }
+            catch
+            {
+                //TODO: обработать исключение
+            }
+            return pairsList;
+        }
 
     }
 }

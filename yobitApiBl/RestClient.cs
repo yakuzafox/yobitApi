@@ -30,28 +30,33 @@ namespace yobitApiBl
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(EndPoint);
             request.Method = HttpMethod.ToString();
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            try
             {
-                if (response.StatusCode != HttpStatusCode.OK)
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
-                    throw new ApplicationException("error code: " + response.StatusCode);
-                }
-                using (Stream responseStream = response.GetResponseStream())
-                {
-                    if(responseStream != null)
-                    {  
-                        using (StreamReader reader = new StreamReader(responseStream))
-                        {
-                            strResponseValue = reader.ReadToEnd();
-                        }//end of streamReader
+                    if (response.StatusCode != HttpStatusCode.OK)
+                    {
+                        throw new ApplicationException("error code: " + response.StatusCode);
                     }
+                    using (Stream responseStream = response.GetResponseStream())
+                    {
+                        if (responseStream != null)
+                        {
+                            using (StreamReader reader = new StreamReader(responseStream))
+                            {
+                                strResponseValue = reader.ReadToEnd();
+                            }//end of streamReader
+                        }
 
-                }// end of using responseStream
+                    }// end of using responseStream
 
 
-            }// end of using response
-
+                }// end of using response
+            }
+            catch(Exception ex)
+            {
+                return ex.Message;
+            }
 
             return strResponseValue;
         }

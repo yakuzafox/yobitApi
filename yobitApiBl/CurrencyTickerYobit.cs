@@ -5,7 +5,7 @@ using System.Text;
 
 namespace yobitApiBl
 {
-    public class CurrencyTicker
+    public class CurrencyTickerYobit
     {
         [JsonProperty("high")]
         public double High { get; set; }

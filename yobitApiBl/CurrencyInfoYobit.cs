@@ -5,12 +5,12 @@ using System.Text;
 
 namespace yobitApiBl
 {
-    public class CurrencyInfo
+    public class CurrencyInfoYobit
     {
         [JsonProperty("server_time")]
         public long ServerTime { get; set; }
 
         [JsonProperty("pairs")]
-        public Dictionary<string, CurrencyPair> Pairs { get; set; }
+        public Dictionary<string, CurrencyPairYobit> Pairs { get; set; }
     }
 }
