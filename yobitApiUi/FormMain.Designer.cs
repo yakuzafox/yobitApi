@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,9 +112,9 @@
             this.labelSelectedPair.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelSelectedPair.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.labelSelectedPair.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelSelectedPair.Location = new System.Drawing.Point(5, 16);
+            this.labelSelectedPair.Location = new System.Drawing.Point(5, 20);
             this.labelSelectedPair.Name = "labelSelectedPair";
-            this.labelSelectedPair.Size = new System.Drawing.Size(248, 40);
+            this.labelSelectedPair.Size = new System.Drawing.Size(248, 36);
             this.labelSelectedPair.TabIndex = 2;
             this.labelSelectedPair.Text = "SelectedPair";
             this.labelSelectedPair.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -205,8 +205,8 @@
             // dataGridViewParser
             // 
             this.dataGridViewParser.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
-            this.dataGridViewParser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
+            this.dataGridViewParser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewParser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -218,21 +218,21 @@
             this.Bid,
             this.Buy,
             this.Sell});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewParser.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewParser.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewParser.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dataGridViewParser.Location = new System.Drawing.Point(263, 93);
             this.dataGridViewParser.Name = "dataGridViewParser";
             this.dataGridViewParser.ReadOnly = true;
             this.dataGridViewParser.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
-            this.dataGridViewParser.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
+            this.dataGridViewParser.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewParser.RowTemplate.Height = 24;
             this.dataGridViewParser.Size = new System.Drawing.Size(747, 324);
             this.dataGridViewParser.TabIndex = 11;
@@ -349,6 +349,7 @@
             this.comboBoxExchange.Name = "comboBoxExchange";
             this.comboBoxExchange.Size = new System.Drawing.Size(168, 24);
             this.comboBoxExchange.TabIndex = 14;
+            this.comboBoxExchange.SelectedIndexChanged += new System.EventHandler(this.comboBoxExchange_SelectedIndexChanged);
             // 
             // FormMain
             // 

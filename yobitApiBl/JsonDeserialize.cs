@@ -80,6 +80,29 @@ namespace yobitApiBl
             }
             return pairsList;
         }
+        public List<string> DeserializePair(string url)
+        {
+            ExchangeInfo exchangeInfo = new ExchangeInfo();
+            List<string> pairList = new List<string>();
+            try
+            {
+                exchangeInfo = JsonConvert.DeserializeObject<ExchangeInfo>(url);
+            }
+            catch
+            {
+                //TODO: обработать исключение
+            }
+            if (exchangeInfo.Symbols != null)
+            {
+                foreach (var item in exchangeInfo.Symbols)
+                {
+                    pairList.Add(item.BaseAsset);
+                }
+            }
+
+
+            return pairList;
+        }
 
     }
 }

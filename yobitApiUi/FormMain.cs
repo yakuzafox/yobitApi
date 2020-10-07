@@ -17,7 +17,9 @@ namespace yobitApiUi
 
         private readonly string strResponseTicker = "https://yobit.net/api/3/ticker/";
 
-        private readonly string strResponseBinBookTicker = "https://www.binance.com/api/v3/ticker/bookTicker";
+        //private readonly string strResponseBinBookTicker = "https://www.binance.com/api/v3/ticker/bookTicker";
+
+        private readonly string strResponseBinExchangeInfo = "https://www.binance.com/api/v3/exchangeInfo";
 
 
         private bool reloadTable = false;
@@ -30,9 +32,20 @@ namespace yobitApiUi
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            client.EndPoint = strResponsePair;
-            string strResponse = client.MakeRequest();
-            Yobit.ListBoxFiller(jsonDeserialize, strResponse, listBoxPair, textBoxLog);
+            switch(comboBoxExchange.Text)
+            {
+                case "Yobit":
+                    client.EndPoint = strResponsePair;
+                    string strResponse = client.MakeRequest();
+                    Yobit.ListBoxFiller(jsonDeserialize, strResponse, listBoxPair, textBoxLog);
+                break;
+                case "Binance":
+                    client.EndPoint = strResponseBinExchangeInfo;
+                    strResponse = client.MakeRequest();
+                    Binance.ListBoxFiller(jsonDeserialize, strResponse, listBoxPair, textBoxLog);
+                break;
+            }
+            
         }
 
         private void listBoxPair_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,15 +57,35 @@ namespace yobitApiUi
             buttonFind.Text = "Start";
             textBoxLink.Text = "";
 
-            Yobit.DataGridViewFiller(listBoxPair, labelSelectedPair, dataGridViewParser);
+            switch (comboBoxExchange.Text)
+            {
+                case "Yobit":
+                    Yobit.DataGridViewFiller(listBoxPair, labelSelectedPair, dataGridViewParser);
+                break;
+            }
+            
         }
 
         private void textBoxSearchPair_TextChanged(object sender, EventArgs e)
         {
             listBoxPair.Items.Clear();
-            client.EndPoint = strResponsePair;
-            string strResponse = client.MakeRequest();
-            Yobit.ListBoxFiller(jsonDeserialize, strResponse, listBoxPair, textBoxLog, textBoxSearchPair);
+            
+            switch (comboBoxExchange.Text)
+            {
+                case "Yobit":
+                    client.EndPoint = strResponsePair;
+                    string strResponse = client.MakeRequest();
+                    Yobit.ListBoxFiller(jsonDeserialize, strResponse, listBoxPair, textBoxLog, textBoxSearchPair);
+                break;
+                case "Binance":
+                    client.EndPoint = strResponseBinExchangeInfo;
+                    strResponse = client.MakeRequest();
+                    Binance.ListBoxFiller(jsonDeserialize, strResponse, listBoxPair, textBoxLog, textBoxSearchPair.Text);
+                break;
+
+
+            }
+            
         }
 
 
@@ -60,7 +93,14 @@ namespace yobitApiUi
         {
             string _strResponseTicker = strResponseTicker;
             reloadTable = !reloadTable;
-            Yobit.StreamDataGrid(reloadTable, buttonFind, dataGridViewParser, textBoxLink, _strResponseTicker, strResponseTicker);
+            switch (comboBoxExchange.Text)
+            {
+                case "Yobit":
+                    Yobit.StreamDataGrid(reloadTable, buttonFind, dataGridViewParser, textBoxLink, _strResponseTicker, strResponseTicker);
+                    break;
+
+            }
+            
             
         }
 
@@ -72,10 +112,42 @@ namespace yobitApiUi
 
         private void timerReloadParse_Tick(object sender, EventArgs e)
         {
-            Yobit.StreamDataGrid(reloadTable, dataGridViewParser, textBoxLog, textBoxLink, client, jsonDeserialize);
+            switch (comboBoxExchange.Text)
+            {
+                case "Yobit":
+                    Yobit.StreamDataGrid(reloadTable, dataGridViewParser, textBoxLog, textBoxLink, client, jsonDeserialize);
+                    break;
+
+            }
+            
         }
 
-        
-}
+        private void comboBoxExchange_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridViewParser.Rows.Clear();
+            reloadTable = false;
+            buttonFind.BackColor = Color.Green;
+            buttonFind.Text = "Start";
+            textBoxLink.Clear();
+            textBoxSearchPair.Clear();
+            listBoxPair.Items.Clear();
+
+
+            
+            switch (comboBoxExchange.Text)
+            {
+                case "Yobit":
+                    client.EndPoint = strResponsePair;
+                    string strResponse = client.MakeRequest();
+                    Yobit.ListBoxFiller(jsonDeserialize, strResponse, listBoxPair, textBoxLog);
+                break;
+                case "Binance":
+                    client.EndPoint = strResponseBinExchangeInfo;
+                    strResponse = client.MakeRequest();
+                    Binance.ListBoxFiller(jsonDeserialize, strResponse, listBoxPair, textBoxLog);
+                break;
+            }
+        }
+    }
 }
 

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using yobitApiBl;
 
@@ -84,7 +81,6 @@ namespace yobitApiUi
                 textBoxLink.Text = _strResponseTicker;
             }
         }
-
         public static void StreamDataGrid(bool reloadTable, DataGridView dataGridViewParser, TextBox textBoxLog, TextBox textBoxLink,RestClient client, JsonDeserialize deserializer)
         {
             if (reloadTable == true)
@@ -111,5 +107,6 @@ namespace yobitApiUi
 
             }
         }
+
     }
 }
