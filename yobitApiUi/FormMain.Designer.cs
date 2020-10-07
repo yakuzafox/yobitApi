@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,13 +50,15 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridViewParser = new System.Windows.Forms.DataGridView();
-            this.panelCurrency = new System.Windows.Forms.Panel();
-            this.buttonFind = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.Pair = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Buy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelCurrency = new System.Windows.Forms.Panel();
+            this.buttonFind = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.timerReloadParse = new System.Windows.Forms.Timer(this.components);
+            this.textBoxLink = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -271,6 +274,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tabPage1.Controls.Add(this.textBoxLink);
             this.tabPage1.Controls.Add(this.dataGridViewParser);
             this.tabPage1.Controls.Add(this.panelCurrency);
             this.tabPage1.Controls.Add(this.buttonFind);
@@ -310,12 +314,45 @@
             this.dataGridViewParser.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridViewParser.Location = new System.Drawing.Point(263, 93);
             this.dataGridViewParser.Name = "dataGridViewParser";
+            this.dataGridViewParser.ReadOnly = true;
             this.dataGridViewParser.RowHeadersWidth = 51;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
             this.dataGridViewParser.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewParser.RowTemplate.Height = 24;
             this.dataGridViewParser.Size = new System.Drawing.Size(747, 301);
             this.dataGridViewParser.TabIndex = 11;
+            // 
+            // Pair
+            // 
+            this.Pair.HeaderText = "Pair";
+            this.Pair.MinimumWidth = 6;
+            this.Pair.Name = "Pair";
+            this.Pair.ReadOnly = true;
+            this.Pair.Width = 125;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 125;
+            // 
+            // Buy
+            // 
+            this.Buy.HeaderText = "Buy";
+            this.Buy.MinimumWidth = 6;
+            this.Buy.Name = "Buy";
+            this.Buy.ReadOnly = true;
+            this.Buy.Width = 125;
+            // 
+            // Sell
+            // 
+            this.Sell.HeaderText = "Sell";
+            this.Sell.MinimumWidth = 6;
+            this.Sell.Name = "Sell";
+            this.Sell.ReadOnly = true;
+            this.Sell.Width = 125;
             // 
             // panelCurrency
             // 
@@ -336,13 +373,18 @@
             // 
             // buttonFind
             // 
+            this.buttonFind.BackColor = System.Drawing.Color.Green;
+            this.buttonFind.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonFind.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonFind.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.buttonFind.ForeColor = System.Drawing.Color.Black;
             this.buttonFind.Location = new System.Drawing.Point(636, 62);
             this.buttonFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonFind.Name = "buttonFind";
-            this.buttonFind.Size = new System.Drawing.Size(119, 25);
+            this.buttonFind.Size = new System.Drawing.Size(127, 26);
             this.buttonFind.TabIndex = 7;
-            this.buttonFind.Text = "Find";
-            this.buttonFind.UseVisualStyleBackColor = true;
+            this.buttonFind.Text = "Start";
+            this.buttonFind.UseVisualStyleBackColor = false;
             this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
             // 
             // tabPage2
@@ -357,33 +399,18 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
-            // Pair
+            // timerReloadParse
             // 
-            this.Pair.HeaderText = "Pair";
-            this.Pair.MinimumWidth = 6;
-            this.Pair.Name = "Pair";
-            this.Pair.Width = 125;
+            this.timerReloadParse.Enabled = true;
+            this.timerReloadParse.Interval = 1000;
+            this.timerReloadParse.Tick += new System.EventHandler(this.timerReloadParse_Tick);
             // 
-            // Price
+            // textBoxLink
             // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.Width = 125;
-            // 
-            // Buy
-            // 
-            this.Buy.HeaderText = "Buy";
-            this.Buy.MinimumWidth = 6;
-            this.Buy.Name = "Buy";
-            this.Buy.Width = 125;
-            // 
-            // Sell
-            // 
-            this.Sell.HeaderText = "Sell";
-            this.Sell.MinimumWidth = 6;
-            this.Sell.Name = "Sell";
-            this.Sell.Width = 125;
+            this.textBoxLink.Location = new System.Drawing.Point(348, 396);
+            this.textBoxLink.Name = "textBoxLink";
+            this.textBoxLink.Size = new System.Drawing.Size(473, 22);
+            this.textBoxLink.TabIndex = 12;
             // 
             // FormMain
             // 
@@ -439,6 +466,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Buy;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sell;
+        private System.Windows.Forms.Timer timerReloadParse;
+        private System.Windows.Forms.TextBox textBoxLink;
     }
 }
 
