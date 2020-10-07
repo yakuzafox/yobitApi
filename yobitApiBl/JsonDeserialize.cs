@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -11,7 +12,6 @@ namespace yobitApiBl
         public List<string> DeserializeInfo (string url)
         {
             List<string> pairsList = new List<string>();
-            //Десериализация валютных пар
             try
             {
                 var currencyInfo = JsonConvert.DeserializeObject<CurrencyInfo>(url);
@@ -33,7 +33,6 @@ namespace yobitApiBl
         {
             Regex regex = new Regex($@"^{find}", RegexOptions.IgnoreCase);
             List<string> pairsList = new List<string>();
-            //Десериализация валютных пар
             try
             {
                 var currencyInfo = JsonConvert.DeserializeObject<CurrencyInfo>(url);
@@ -53,13 +52,22 @@ namespace yobitApiBl
             }
             return pairsList;
         }
+
+        public Dictionary<string, CurrencyTicker> DeserializeTicker(string url)
+        {
+            Dictionary<string, CurrencyTicker> tickerList = new Dictionary<string, CurrencyTicker>();
+            try
+            {
+                tickerList = JsonConvert.DeserializeObject<Dictionary<string, CurrencyTicker>>(url);       
+            }
+            catch
+            {
+                throw new ArgumentException("error list currency ticker");
+            }
+            return tickerList;
+        }
+
+
+
     }
 }
-/*
-    rur
-
-    ltc btc 
-    ltc doge 
-    ltc eht 
-    ltc rur
-*/

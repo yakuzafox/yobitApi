@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +49,7 @@
             this.comboBoxConvertPair = new System.Windows.Forms.ComboBox();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBoxLink = new System.Windows.Forms.TextBox();
             this.dataGridViewParser = new System.Windows.Forms.DataGridView();
             this.Pair = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +59,7 @@
             this.buttonFind = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.timerReloadParse = new System.Windows.Forms.Timer(this.components);
-            this.textBoxLink = new System.Windows.Forms.TextBox();
+            this.checkBoxAllPair = new System.Windows.Forms.CheckBox();
             this.menuStripMain.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -291,11 +292,24 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Parser";
             // 
+            // textBoxLink
+            // 
+            this.textBoxLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLink.Location = new System.Drawing.Point(263, 396);
+            this.textBoxLink.Name = "textBoxLink";
+            this.textBoxLink.ReadOnly = true;
+            this.textBoxLink.Size = new System.Drawing.Size(747, 22);
+            this.textBoxLink.TabIndex = 12;
+            // 
             // dataGridViewParser
             // 
             this.dataGridViewParser.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
-            this.dataGridViewParser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
+            this.dataGridViewParser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewParser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewParser.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
             this.dataGridViewParser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewParser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -303,21 +317,21 @@
             this.Price,
             this.Buy,
             this.Sell});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewParser.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewParser.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewParser.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridViewParser.Location = new System.Drawing.Point(263, 93);
             this.dataGridViewParser.Name = "dataGridViewParser";
             this.dataGridViewParser.ReadOnly = true;
             this.dataGridViewParser.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
-            this.dataGridViewParser.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(38)))));
+            this.dataGridViewParser.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewParser.RowTemplate.Height = 24;
             this.dataGridViewParser.Size = new System.Drawing.Size(747, 301);
             this.dataGridViewParser.TabIndex = 11;
@@ -357,6 +371,7 @@
             // panelCurrency
             // 
             this.panelCurrency.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCurrency.Controls.Add(this.checkBoxAllPair);
             this.panelCurrency.Controls.Add(this.checkBoxUSDT);
             this.panelCurrency.Controls.Add(this.checkBoxBTC);
             this.panelCurrency.Controls.Add(this.checkBoxRUR);
@@ -405,12 +420,17 @@
             this.timerReloadParse.Interval = 1000;
             this.timerReloadParse.Tick += new System.EventHandler(this.timerReloadParse_Tick);
             // 
-            // textBoxLink
+            // checkBoxAllPair
             // 
-            this.textBoxLink.Location = new System.Drawing.Point(348, 396);
-            this.textBoxLink.Name = "textBoxLink";
-            this.textBoxLink.Size = new System.Drawing.Size(473, 22);
-            this.textBoxLink.TabIndex = 12;
+            this.checkBoxAllPair.AutoSize = true;
+            this.checkBoxAllPair.ForeColor = System.Drawing.Color.White;
+            this.checkBoxAllPair.Location = new System.Drawing.Point(523, 9);
+            this.checkBoxAllPair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxAllPair.Name = "checkBoxAllPair";
+            this.checkBoxAllPair.Size = new System.Drawing.Size(74, 21);
+            this.checkBoxAllPair.TabIndex = 1;
+            this.checkBoxAllPair.Text = "All Pair";
+            this.checkBoxAllPair.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
@@ -468,6 +488,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sell;
         private System.Windows.Forms.Timer timerReloadParse;
         private System.Windows.Forms.TextBox textBoxLink;
+        private System.Windows.Forms.CheckBox checkBoxAllPair;
     }
 }
 

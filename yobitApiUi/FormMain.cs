@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -12,7 +13,11 @@ namespace yobitApiUi
 
         private readonly JsonDeserialize jsonDeserialize = new JsonDeserialize();
 
-        private string strResponsePair = "https://yobit.net/api/3/ticker/";
+        private readonly string strResponsePair = "https://yobit.net/api/3/info";
+
+        private readonly string strResponseTicker = "https://yobit.net/api/3/ticker/";
+
+
 
         private bool reloadTable = false;
         public FormMain()
@@ -23,7 +28,7 @@ namespace yobitApiUi
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            client.EndPoint = "https://yobit.net/api/3/info";
+            client.EndPoint = strResponsePair;
 
             string strResponse = client.MakeRequest();
 
@@ -42,7 +47,14 @@ namespace yobitApiUi
             string selectedCurrency = labelSelectedPair.Text;
             selectedCurrency = selectedCurrency.Substring(0, selectedCurrency.LastIndexOf('_') + 1);
             Regex regex = new Regex($@"^{selectedCurrency}", RegexOptions.IgnoreCase);
+
+            //reset settings stream api
             dataGridViewParser.Rows.Clear();
+            reloadTable = false;
+            buttonFind.BackColor = Color.Green;
+            buttonFind.Text = "Start";
+            textBoxLink.Text = "";
+
 
             foreach (var key in listBoxPair.Items)
             {
@@ -58,7 +70,7 @@ namespace yobitApiUi
         private void textBoxSearchPair_TextChanged(object sender, EventArgs e)
         {
             listBoxPair.Items.Clear();
-            client.EndPoint = "https://yobit.net/api/3/info";
+            client.EndPoint = strResponsePair;
             string strResponse = client.MakeRequest();
 
             foreach (var item in jsonDeserialize.DeserializeInfo(strResponse, textBoxSearchPair.Text))
@@ -70,6 +82,7 @@ namespace yobitApiUi
 
         private void buttonFind_Click(object sender, EventArgs e)
         {
+            string _strResponseTicker = strResponseTicker;
             reloadTable = !reloadTable;
             if (reloadTable == false)
             {
@@ -83,16 +96,16 @@ namespace yobitApiUi
 
                 for (int row = 0; row < dataGridViewParser.Rows.Count - 1; row++)
                 {
-                    if (strResponsePair == "https://yobit.net/api/3/ticker/")
+                    if (_strResponseTicker == strResponseTicker)
                     {
-                        strResponsePair += (dataGridViewParser.Rows[row].Cells[0].Value.ToString());
+                        _strResponseTicker += (dataGridViewParser.Rows[row].Cells[0].Value.ToString());
                     }
                     else
                     {
-                        strResponsePair += "-" + dataGridViewParser.Rows[row].Cells[0].Value.ToString();
+                        _strResponseTicker += "-" + dataGridViewParser.Rows[row].Cells[0].Value.ToString();
                     }
                 }
-                textBoxLink.Text = strResponsePair;
+                textBoxLink.Text = _strResponseTicker;
             }
         }
 
@@ -104,18 +117,25 @@ namespace yobitApiUi
 
         private void timerReloadParse_Tick(object sender, EventArgs e)
         {
-            //strResponsePair = "https://yobit.net/api/3/ticker/";
-            
+  
             if (reloadTable == true)
             {
+                if (!String.IsNullOrWhiteSpace(textBoxLink.Text))
+                {
 
-                
+                    client.EndPoint = textBoxLink.Text;
 
-                //string strResponse = client.MakeRequest();
+                    int counter = 0;
+                    string strResponse = client.MakeRequest();
+                    foreach (KeyValuePair <string, CurrencyTicker>item in jsonDeserialize.DeserializeTicker(strResponse))
+                    {  
+                        dataGridViewParser.Rows[counter].Cells[1].Value = item.Value.Last;
+
+                        counter++;
+                    }
+                }
 
 
-               
-                
             }
         }
 
